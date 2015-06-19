@@ -38,6 +38,7 @@ public:
 	 */
 	virtual void undistort(const cv::Mat& image, cv::OutputArray result) const = 0;
 	
+	virtual void undistort2(uchar * src,uchar * dst) const = 0;
 	/**
 	 * Returns the intrinsic parameter matrix of the undistorted images.
 	 */
@@ -107,7 +108,7 @@ public:
 	 * Undistorts the given image and returns the result image.
 	 */
 	void undistort(const cv::Mat& image, cv::OutputArray result) const;
-	
+	void undistort2(uchar * src,uchar * dst) const;
 	/**
 	 * Returns the intrinsic parameter matrix of the undistorted images.
 	 */
@@ -187,7 +188,7 @@ public:
 	 * Undistorts the given image and returns the result image.
 	 */
 	void undistort(const cv::Mat& image, cv::OutputArray result) const;
-	
+	void undistort2(uchar * src,uchar * dst) const; 
 	/**
 	 * Returns the intrinsic parameter matrix of the undistorted images.
 	 */
