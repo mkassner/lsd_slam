@@ -26,7 +26,6 @@
 #include "DataStructures/FramePoseStruct.h"
 #include "DataStructures/FrameMemory.h"
 #include "unordered_set"
-#include "util/settings.h"
 
 
 namespace lsd_slam

@@ -255,8 +255,9 @@ void SlamSystem::finalize()
 		usleep(200000);
 	}
 	boost::unique_lock<boost::mutex> lock(newFrameMappedMutex);
-	newFrameMappedSignal.wait(lock);
-	newFrameMappedSignal.wait(lock);
+	// commented out becasue it collides with out output wrapper...
+	// newFrameMappedSignal.wait(lock);
+	// newFrameMappedSignal.wait(lock);
 
 	usleep(200000);
 	printf("Done Finalizing Graph.!!\n");
@@ -1032,7 +1033,7 @@ void SlamSystem::trackFrame(uchar* image, unsigned int frameID, bool blockUntilM
 		boost::unique_lock<boost::mutex> lock(newFrameMappedMutex);
 		while(unmappedTrackedFrames.size() > 0)
 		{
-			//printf("TRACKING IS BLOCKING, waiting for %d frames to finish mapping.\n", (int)unmappedTrackedFrames.size());
+			printf("TRACKING IS BLOCKING, waiting for %d frames to finish mapping.\n", (int)unmappedTrackedFrames.size());
 			newFrameMappedSignal.wait(lock);
 		}
 		lock.unlock();
